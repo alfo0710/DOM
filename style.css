@@ -1,0 +1,93 @@
+body {
+  font-family: Arial, sans-serif;
+  background-color: #f4f4f4;
+  margin: 0;
+  padding: 0;
+}
+
+h1 {
+  text-align: center;
+  background-color: #85BDBF;
+  color: white;
+  padding: 15px;
+  margin: 0;
+}
+
+form {
+  max-width: 600px;
+  background: white;
+  margin: 20px auto;
+  padding: 20px;
+  border-radius: 8px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+
+.campo {
+  margin-bottom: 15px;
+}
+
+label {
+  display: block;
+  font-weight: bold;
+  margin-bottom: 5px;
+}
+
+input {
+  width: 100%;
+  padding: 8px;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  font-size: 14px;
+  box-sizing: border-box;
+}
+
+input:focus {
+  border-color: #85BDBF;
+  outline: none;
+  box-shadow: 0 0 5px rgba(133, 189, 191, 0.5);
+}
+
+.botones {
+  display: flex;
+  justify-content: space-between;
+}
+
+button {
+  width: 48%;
+  padding: 10px;
+  border: none;
+  border-radius: 5px;
+  font-size: 16px;
+  cursor: pointer;
+}
+
+#botonRegistrar {
+  background-color: #85BDBF;
+  color: white;
+}
+
+#botonRegistrar:hover {
+  background-color: #6ea6a8;
+}
+
+#botonCancelar {
+  background-color: #ccc;
+  color: black;
+}
+
+#botonCancelar:hover {
+  background-color: #999;
+}
+
+#mensajesError {
+  color: red;
+  margin-top: 10px;
+  white-space: pre-line;
+}
+
+#mensajeExito {
+  color: green;
+  font-weight: bold;
+  margin-top: 10px;
+  white-space: pre-line;
+}
