@@ -1,61 +1,56 @@
-// Guardamos botón y contenedor de mensaje
-var botonCalcular = document.getElementById("btn_calcular");
-var mensajeResultado = document.getElementById("mensajeResultado");
 
-// Escuchamos clic en el botón
-botonCalcular.addEventListener("click", calcularTotal);
+//guardar boton de calcular 
+const calcular = document.getElementById("btn_calcular");
+// const boton_ocultar = document.getElementById("btn_ocultar");
 
-// Función principal para calcular
-function calcularTotal() {
-  var nombre = document.getElementById("nombre").value.trim();
-  var cantidad = parseInt(document.getElementById("cantidadEntradas").value);
-  var tipo = document.getElementById("tipoEntrada").value;
-  var codigo = document.getElementById("codigoDescuento").value.trim();
+const resultado_suma = document.getElementById("resultado_suma");
+const resultado_resta = document.getElementById("resultado_resta");
+const resultado_multiplicacion = document.getElementById("resultado_mul");
+const resultado_division = document.getElementById("resultado_div");
+const resultado = document.getElementById("resultado");
 
-  // Validar nombre
-  if (nombre === "") {
-    mostrarMensaje("❌ El nombre no puede estar vacío.", false);
+calcular.addEventListener("click", function() {
+    // guardar los valores de los inputs y convertirlos a numero
+  const numero1 = Number(document.getElementById("num1").value);
+  const numero2 = Number(document.getElementById("num2").value);
+
+  // Verificar si los inputs son válidossc
+
+  if (isNaN(numero1) || isNaN(numero2))  {
+    alert("Ingresa solo numeros");
     return;
   }
 
-  // Validar cantidad
-  if (isNaN(cantidad) || cantidad < 1) {
-    mostrarMensaje("❌ La cantidad debe ser un número mayor a 0.", false);
-    return;
-  }
+  resultado_suma.textContent = "Suma: " + suma(numero1, numero2);
+  resultado_resta.textContent = "Resta: " + resta(numero1, numero2);
+  resultado_multiplicacion.textContent = "Multiplicación: " + multiplicacion(numero1, numero2);
+  resultado_division.textContent = "División: " + division(numero1, numero2);
+});
 
-  // Precio según tipo
-  var precio = 0;
-  if (tipo === "general") {
-    precio = 1000;
-  } else if (tipo === "platino") {
-    precio = 2000;
-  } else if (tipo === "vip") {
-    precio = 3000;
-  }
+// boton_ocultar.addEventListener("click", function() {
+//   resultado.style.display = "none";
+// });
 
-  var total = precio * cantidad;
 
-  // Verificar descuento
-  if (codigo.toUpperCase() === "ROCK10") {
-    total = total * 0.9;
-  }
+// funciones para realizar las operaciones
 
-  // Mostrar mensaje final
-  mostrarMensaje("✅ ¡Gracias " + nombre + "! Total a pagar: $" + total.toFixed(2), true);
+function suma(a, b) {
+  return a + b;
 }
 
-// Función para mostrar mensaje con clases CSS
-function mostrarMensaje(texto, esExito) {
-  mensajeResultado.textContent = texto;
+function resta(a, b) {
+  return a - b;
+}
 
-  // Limpiar clases anteriores
-  mensajeResultado.className = "";
+function multiplicacion(a, b) {
+  return a * b;
+}
 
-  // Agregar clase nueva
-  if (esExito) {
-    mensajeResultado.classList.add("exito");
-  } else {
-    mensajeResultado.classList.add("error");
+function division(a, b) {
+  if (b === 0) {
+    return "Error: División por cero";
   }
+
+  //retorno la división con 2 decimales.(Recorto con  toFixed)
+  return (a / b).toFixed(2);
 }

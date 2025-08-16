@@ -3,67 +3,88 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Registro de Alumno</title>
-    <link rel="stylesheet" href="style.css" />
+    <title>Document</title>
   </head>
   <body>
-    <h1>Registro de Alumno</h1>
+    <style>
+      * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+        font-family: Arial, Helvetica, sans-serif;
+      }
 
-    <form id="formularioAlumno">
-      <div class="campo">
-        <label for="campoNombre">Nombre:</label>
-        <input type="text" name="nombre" id="campoNombre" required />
-      </div>
+      /* .clase1{
+        background-color: crimson;
+        color: wheat;
+      
+        } */
 
-      <div class="campo">
-        <label for="campoApellido">Apellido:</label>
-        <input type="text" name="apellido" id="campoApellido" required />
-      </div>
+      .ingreso {
+        background-color: rgb(74, 172, 204);
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        color: white;
+      }
 
-      <div class="campo">
-        <label for="campoEmail">Email:</label>
-        <input type="email" name="email" id="campoEmail" required />
-      </div>
+      .resultados {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        flex-wrap: wrap;
+        /* margin-top: 2rem; */
+        background-color: rgb(224, 61, 93);
+        gap: 1rem;
+      }
 
-      <div class="campo">
-        <label for="campoCelular">Celular:</label>
-        <input type="text" name="celular" id="campoCelular" required />
-      </div>
+     
+      .resultado {
+        /* background-color: salmon; */
+        color: wheat;
+      }
 
-      <div class="campo">
-        <label for="campoTelefono">Teléfono:</label>
-        <input type="text" name="telefono" id="campoTelefono" />
-      </div>
+      h2 {
+        font-size: 1rem;
+        margin: 1rem;
+        color: antiquewhite;
+        text-align: center;
+      }
 
-      <div class="campo">
-        <label for="campoDireccion">Dirección:</label>
-        <input type="text" name="direccion" id="campoDireccion" required />
-      </div>
+      .resultados button {
+        padding: 0.5rem 1rem;
+        background-color: #ffffff;
+        color: rgb(224, 61, 93);
+        border: 2px solid rgb(224, 61, 93);
+        border-radius: 10px;
+        font-size: 1rem;
+        font-weight: bold;
+        cursor: pointer;
+        margin: 1rem;
+      }
+    </style>
 
-      <div class="campo">
-        <label for="campoFecha">Fecha nacimiento:</label>
-        <input type="date" name="fecha" id="campoFecha" required />
-      </div>
+    <!--Ingreso de numeros-->
 
-      <div class="campo">
-        <label for="campoClave">Contraseña:</label>
-        <input type="password" name="password" id="campoClave" required />
-      </div>
+    
+    <div class="ingreso">
+      <h2 id=""><label for="num1">Numero 1:</label><input type="number" name="num1" id="num1"></h2>
+      <h2 id=""> <label for="num2">Numero 2: </label><input type="number" name="num2" id="num2"></h2>
 
-      <div class="campo">
-        <label for="campoClave2">Repetir contraseña:</label>
-        <input type="password" name="password2" id="campoClave2" required />
-      </div>
+        <button type="button" id="btn_calcular">Calcular</button>
+    </div>
 
-      <div class="botones">
-        <button type="submit" id="botonRegistrar">Registrar</button>
-        <button type="button" id="botonCancelar">Cancelar</button>
-      </div>
+    <div class="resultados"><h2>Resultados</h2></div>
 
-      <p id="mensajesError"></p>
-      <p id="mensajeExito"></p>
-    </form>
+    <div class="resultados" id="resultado">
+      <div class="resultado"><h2 id="resultado_suma"></h2></div>
+      <div class="resultado"><h2 id="resultado_resta"></h2></div>
+      <div class="resultado"><h2 id="resultado_mul"></h2></div>
+      <div class="resultado"><h2 id="resultado_div"></h2></div>
 
+      <!-- <button type="button" id="btn-ocultar">ocultar</button> -->
+    </div>
     <script src="app.js"></script>
   </body>
 </html>
